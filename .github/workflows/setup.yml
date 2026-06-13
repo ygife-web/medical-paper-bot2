@@ -1,0 +1,65 @@
+name: 🔧 Setup - 専門領域を設定する
+
+on:
+  workflow_dispatch:
+    inputs:
+      specialty:
+        description: |
+          あなたの専門領域を日本語で入力してください
+          例: 循環器内科 / 消化器内科 / 神経内科 / 腫瘍内科 / 呼吸器内科
+        required: true
+        type: string
+      daily_theme_preferences:
+        description: |
+          曜日ごとのテーマの希望があれば入力してください（任意・空白でもOK）
+          例: 月曜=大腸癌, 火曜=肝臓, 水曜=膵臓, 木曜=胃・食道, 金曜=IBD, 土曜=救急, 日曜=内視鏡
+          入力しない場合はAIが自動で決めます
+        required: false
+        type: string
+        default: ''
+      include_basic_science:
+        description: |
+          基礎研究論文（動物実験・細胞実験など）も含めますか？
+          ※ 臨床家の方は「いいえ」推奨、基礎研究者の方は「はい」を選択してください
+        required: true
+        type: choice
+        default: 'いいえ（臨床研究のみ）'
+        options:
+          - 'いいえ（臨床研究のみ）'
+          - 'はい（基礎研究も含める）'
+
+jobs:
+  generate-config:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install google-genai pyyaml
+
+      - name: Generate config.yaml
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SPECIALTY: ${{ inputs.specialty }}
+          DAILY_THEME_PREFERENCES: ${{ inputs.daily_theme_preferences }}
+          INCLUDE_BASIC_SCIENCE: ${{ inputs.include_basic_science }}
+        run: python setup.py
+
+      - name: Commit generated config.yaml
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add config.yaml
+          git commit -m "setup: ${{ inputs.specialty }} 向けにconfig.yamlを自動生成"
+          git push
