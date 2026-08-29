@@ -26,25 +26,25 @@ exclude_types:
 - Published Erratum
 clinical_relevance:
   high_value:
-  - mortality
-  - morbidity
-  - length of hospital stay
+  - cardiovascular mortality
+  - all-cause mortality
+  - stroke
+  - myocardial infarction
+  - renal failure
+  - bleeding complications
+  - reoperation
+  - hospital readmission
   - quality of life
-  - patient safety
-  - adverse events
-  - postoperative pain
-  - recovery time
-  - organ dysfunction
-  - readmission rate
+  - major adverse cardiovascular events
   practical:
   - clinical guidelines
+  - treatment algorithms
+  - surgical techniques
   - decision making
+  - patient selection
   - risk stratification
-  - enhanced recovery after surgery
-  - eras protocol
-  - patient education
-  - shared decision making
-  - cost effectiveness
+  - cost-effectiveness
+  - long-term outcomes
   japan_relevant:
   - japanese
   - asian
@@ -74,121 +74,116 @@ output:
 history:
   file: history.json
   retention_days: 180
-specialty_name: 麻酔科
+specialty_name: 心臓血管外科
 specialties:
   primary:
-  - anesthesia management
-  - perioperative care
-  - pain management
-  - regional anesthesia
-  - general anesthesia
-  - critical care
-  - airway management
+  - cardiac surgery
+  - coronary artery bypass grafting
+  - aortic aneurysm
+  - valvular heart disease
+  - mitral valve repair
+  - aortic dissection
+  - peripheral artery disease
   secondary:
-  - postoperative nausea and vomiting
-  - ponv
-  - hemodynamic management
-  - fluid management
-  - nerve block
-  - postoperative cognitive dysfunction
-  - pocd
-  - sepsis
-  - shock
-  - cardiopulmonary resuscitation
-  - blood transfusion
-  - coagulation management
+  - transcatheter aortic valve implantation
+  - tavi
+  - ventricular assist device
+  - heart transplantation
+  - carotid endarterectomy
+  - endovascular aneurysm repair
+  - evar
+  - maze procedure
+  - extracorporeal membrane oxygenation
+  - ecmo
+  - surgical revascularization
+  - postoperative complications
 journals:
   tier1:
+  - J Thorac Cardiovasc Surg
+  - Ann Thorac Surg
+  - Circulation
   - N Engl J Med
-  - Lancet
-  - JAMA
-  - Anesthesiology
-  - Br J Anaesth
   tier2:
-  - Anesth Analg
-  - Pain
-  - Crit Care Med
-  - Reg Anesth Pain Med
-  - Eur J Anaesthesiol
+  - J Vasc Surg
+  - Eur J Cardiothorac Surg
+  - J Am Coll Cardiol
+  - Circ Cardiovasc Interv
   tier3:
-  - J Clin Anesth
-  - Can J Anaesth
-  - Minerva Anestesiol
-  - J Anesth
-  - Anaesthesia
-  - Acta Anaesthesiol Scand
-  - Anesth
-  - Curr Opin Anaesthesiol
+  - Interact Cardiovasc Thorac Surg
+  - Semin Thorac Cardiovasc Surg
+  - J Card Surg
+  - Vasc Endovasc Surg
+  - Catheter Cardiovasc Interv
+  - Am Heart J
+  - Heart
 daily_themes:
   Monday:
     specialties:
-    - general anesthesia
-    - anesthetic agents
-    - propofol
-    - sevoflurane
-    - opioids
+    - coronary artery bypass grafting
+    - cabg
+    - coronary revascularization
+    - off-pump cabg
+    - on-pump cabg
     journals:
-    - Anesthesiology
-    - Br J Anaesth
+    - J Thorac Cardiovasc Surg
+    - Ann Thorac Surg
   Tuesday:
     specialties:
-    - regional anesthesia
-    - nerve block
-    - epidural anesthesia
-    - spinal anesthesia
-    - postoperative pain
+    - valvular heart disease
+    - aortic valve replacement
+    - mitral valve repair
+    - tricuspid valve surgery
+    - transcatheter aortic valve implantation
     journals:
-    - Reg Anesth Pain Med
-    - Pain
+    - Eur J Cardiothorac Surg
+    - J Am Coll Cardiol
   Wednesday:
     specialties:
-    - perioperative management
-    - postoperative complications
-    - cardiovascular complications
-    - respiratory complications
-    - renal complications
+    - aortic aneurysm
+    - aortic dissection
+    - thoracic endovascular aortic repair
+    - tevar
+    - endovascular aneurysm repair
     journals:
-    - Anesth Analg
-    - J Clin Anesth
+    - J Vasc Surg
+    - Circulation
   Thursday:
     specialties:
-    - critical care
-    - sepsis
-    - shock
-    - acute respiratory distress syndrome
-    - ards
-    - cardiopulmonary resuscitation
+    - peripheral artery disease
+    - carotid endarterectomy
+    - carotid artery stenosis
+    - lower extremity revascularization
+    - venous insufficiency
     journals:
-    - Crit Care Med
-    - Intensive Care Med
+    - J Vasc Surg
+    - Vasc Endovasc Surg
   Friday:
     specialties:
-    - pediatric anesthesia
-    - obstetric anesthesia
-    - cardiac anesthesia
-    - neuroanesthesia
-    - thoracic anesthesia
+    - heart failure surgery
+    - ventricular assist device
+    - vad
+    - heart transplantation
+    - extracorporeal membrane oxygenation
     journals:
-    - Pediatr Anesth
-    - Int J Obstet Anesth
-    - J Cardiothorac Vasc Anesth
+    - J Heart Lung Transpl
+    - Circ Heart Fail
   Saturday:
     specialties:
-    - patient safety
-    - quality improvement
-    - anesthesia monitoring
-    - depth of anesthesia
-    - adverse events
+    - atrial fibrillation surgery
+    - maze procedure
+    - congenital heart surgery
+    - tetralogy of fallot repair
+    - transposition of great arteries
     journals:
-    - Anesthesiology
-    - J Patient Saf
+    - J Thorac Cardiovasc Surg
+    - Ann Thorac Surg
   Sunday:
     specialties:
-    - medical education
-    - simulation training
-    - artificial intelligence in anesthesia
-    - machine learning in anesthesia
-    - research methodology
+    - postoperative complications
+    - surgical outcomes
+    - patient safety
+    - quality of care
+    - enhanced recovery after surgery
     journals:
-    - Med Educ
-    - Anesthesiology
+    - Ann Thorac Surg
+    - J Thorac Cardiovasc Surg
